@@ -1,16 +1,16 @@
 version: "3"
 services:
   
-  web:
-    container_name: reactContainer
+  frontend:
+    container_name: frontend
     build: 
       context: ./Front-End-React-And-Keycloak
       dockerfile: Dockerfile
     ports:
       - 3000:80
   
-  spring:
-    container_name: jarContainer
+  backend:
+    container_name: backend
     build: 
       context: ./Back-End-Spring
       dockerfile: Dockerfile
@@ -21,7 +21,7 @@ services:
     command: ["java", "-jar", "/app.jar"]
   
   keycloak:
-    container_name: keycloakContainer
+    container_name: keycloak
     image: quay.io/keycloak/keycloak:21.1.1
     environment:
       KEYCLOAK_IMPORT: /tmp/realm-export.json
@@ -50,6 +50,7 @@ services:
       - "-Dkeycloak.migration.strategy=IGNORE_EXISTING"
 
   postgres_keycloak:
+    container_name: postgres_keycloak
     image: postgres:14.2
     command: postgres -c 'max_connections=200'
     volumes:
