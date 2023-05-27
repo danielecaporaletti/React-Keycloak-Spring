@@ -1,3 +1,5 @@
+import jsSHA from "jssha";
+
 export const generateStateHelper = () => {
     const length = 30;
     let stateValue = "";
@@ -17,16 +19,18 @@ export const generateCodeVerifierHelper = () => {
     return codeVerifier;
 };
 
-export const generateCodeChallengeHelper = async (codeVerifier) => {
+export const generateCodeChallengeHelper = (codeVerifier) => {
     if (!codeVerifier || codeVerifier.length < 43 || codeVerifier.length > 128) {
         alert("Invalid codeVerifier. It must be between 43 and 128 characters long.");
         return ""
     }
-    let codeChallenge = "";
-    const textEncoder = new TextEncoder('US-ASCII');
-    const encodedValue = textEncoder.encode(codeVerifier);
-    const digest = await window.crypto.subtle.digest("SHA-256", encodedValue);
-    codeChallenge = base64urlencode(Array.from(new Uint8Array(digest)));
+
+    let shaObj = new jsSHA("SHA-256", "TEXT");
+    shaObj.update(codeVerifier);
+    let hash = shaObj.getHash("ARRAYBUFFER");
+
+    let codeChallenge = base64urlencode(new Uint8Array(hash));
+
     return codeChallenge;
 };
 
