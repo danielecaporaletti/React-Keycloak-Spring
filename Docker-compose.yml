@@ -4,7 +4,7 @@ services:
   frontend:
     container_name: frontend
     build: 
-      context: ./Front-End-React-And-Keycloak
+      context: ./Front-End-React
       dockerfile: Dockerfile
     ports:
       - 80:80
