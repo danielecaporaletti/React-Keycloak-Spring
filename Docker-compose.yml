@@ -7,7 +7,7 @@ services:
       context: ./Front-End-React-And-Keycloak
       dockerfile: Dockerfile
     ports:
-      - 3000:80
+      - 80:80
   
   backend:
     container_name: backend
