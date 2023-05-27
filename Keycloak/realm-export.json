@@ -693,12 +693,12 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://34.76.102.17:80/login/callback",
-        "http://34.76.102.17:80/library"
+        "http://localhost:80/login/callback",
+        "http://localhost:80/library"
       ],
       "webOrigins": [
-        "http://34.76.102.17",
-        "http://34.76.102.17:80"
+        "http://localhost",
+        "http://localhost:80"
       ],
       "notBefore": 0,
       "bearerOnly": false,
