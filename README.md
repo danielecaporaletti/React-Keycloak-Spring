@@ -1,6 +1,6 @@
 **Note: This document is available in two languages, <a href="#english">English</a> and <a href="#italian">Italian</a>.**
 
-<a href="#english"></a>
+<a id="english"></a>
 **ENGLISH VERSION**
 
 # Local Installation
@@ -53,7 +53,7 @@ For automatic authentication, I used the `keycloak-js` library for React and imp
 
 ---
 
-<a href="#italian"></a>
+<a id="italian"></a>
 **VERSIONE ITALIANA**
 
 # Installazione in locale
