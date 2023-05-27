@@ -17,7 +17,7 @@ This action will start four Docker containers:
 
 Below is a schematic that illustrates the organization of the containers:
 
-![Container schema](URL "Container schema")
+![Container schema](./assetsReadme/React-Keycloak-Spring.png "Container schema")
 
 # Application Operation
 
@@ -29,7 +29,7 @@ Upon login, you will have two options: guided authentication and automatic authe
 
 For guided authentication, I have implemented a code flow that simplifies the steps of authentication:
 
-![OAuth2.0 Authorization Code Flow](URL "OAuth2.0 Flow PKCE")
+![OAuth2.0 Authorization Code Flow](./assetsReadme/Autentication-Flow.png "OAuth2.0 Flow PKCE")
 
 The authentication flow is as follows:
 
@@ -66,7 +66,7 @@ Questa azione avvierà quattro container Docker:
 
 Di seguito è riportato uno schema che illustra l'organizzazione dei container:
 
-![Schema dei container](URL "Schema dei container")
+![Schema dei container](./assetsReadme/React-Keycloak-Spring.png "Schema dei container")
 
 # Funzionamento dell'applicazione
 
@@ -78,7 +78,7 @@ Dopo l'accesso, avrai due opzioni: l'autenticazione guidata e l'autenticazione a
 
 Per l'autenticazione guidata, ho implementato un flusso di codice che semplifica i passaggi dell'autenticazione:
 
-![Flusso del Codice di Autorizzazione OAuth2.0](URL "OAuth2.0 Flow PKCE")
+![Flusso del Codice di Autorizzazione OAuth2.0](./assetsReadme/Autentication-Flow.png "OAuth2.0 Flow PKCE")
 
 Il flusso di autenticazione è come segue:
 
