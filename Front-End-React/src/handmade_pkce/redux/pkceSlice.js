@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { generateStateHelper, generateCodeVerifierHelper, generateCodeChallengeHelper } from './pkceHelpers';
+import { BASE_URL_FRONTEND, BASE_URL_KEYCLOAK, BASE_URL_BACKEND } from '../../config';
 
 // Action creator asincrono
 export const generateCodeChallenge = createAsyncThunk(
@@ -22,7 +23,7 @@ export const getAccessToken = createAsyncThunk(
         "client_id": "my-client",
         "code": authorizationCode,
         "code_verifier": codeVerifier,
-        "redirect_uri": "http://localhost:3000/login/callback"
+        "redirect_uri": `${BASE_URL_FRONTEND}/login/callback`
     };
 
     var formBody = [];
@@ -40,7 +41,7 @@ export const getAccessToken = createAsyncThunk(
         mode: 'cors'
     };
 
-    const response = await fetch("http://localhost:8080/realms/Reame1/protocol/openid-connect/token", init);
+    const response = await fetch(`${BASE_URL_KEYCLOAK}/realms/Reame1/protocol/openid-connect/token`, init);
     const responseJson = await response.json();
 
     console.log(responseJson);
@@ -69,7 +70,7 @@ export const getResource = createAsyncThunk(
     console.log(accessToken.access_token);
     console.log(init);
 
-    const response = await fetch('http://localhost:8090/contacts/', init);
+    const response = await fetch(`${BASE_URL_BACKEND}/contacts/`, init);
     const responseJson = await response.json();
     console.log(responseJson);
     console.log(responseJson.response);

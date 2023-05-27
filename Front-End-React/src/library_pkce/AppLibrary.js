@@ -5,6 +5,7 @@ import { Container, Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
 import { Alert } from 'react-bootstrap';
+import { BASE_URL_BACKEND, BASE_URL_FRONTEND } from '../config';
 
 const AppLibrary = () => {
     const navigate = useNavigate();
@@ -20,7 +21,8 @@ const AppLibrary = () => {
                     onLoad: 'check-sso',
                     responseMode: 'fragment',
                     flow: 'standard',
-                    pkceMethod: 'S256'
+                    pkceMethod: 'S256',
+                    redirectUri: `${BASE_URL_FRONTEND}/library`
                 });
 
                 if (authenticated) {
@@ -59,7 +61,7 @@ const AppLibrary = () => {
     const fetchResources = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:8090/contacts/', {
+            const response = await axios.get(`${BASE_URL_BACKEND}/contacts/`, {
                 headers: {
                     'Authorization': `Bearer ${keycloak.token}`
                 }

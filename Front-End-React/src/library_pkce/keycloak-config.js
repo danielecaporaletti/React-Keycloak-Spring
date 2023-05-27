@@ -1,7 +1,8 @@
 import Keycloak from 'keycloak-js';
+import { BASE_URL_KEYCLOAK } from '../config';
 
 const keycloakConfig = {
-    url: 'http://localhost:8080/',
+    url: `${BASE_URL_KEYCLOAK}/`,
     realm: 'Reame1',
     clientId: 'my-client'
 };

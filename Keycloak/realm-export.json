@@ -687,11 +687,12 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://localhost:3000/login/callback",
-        "http://localhost:3000/library"
+        "http://34.76.102.17:80/login/callback",
+        "http://34.76.102.17:80/library"
       ],
       "webOrigins": [
-        "http://localhost:3000"
+        "http://34.76.102.17:80",
+        "http://34.76.102.17"
       ],
       "notBefore": 0,
       "bearerOnly": false,

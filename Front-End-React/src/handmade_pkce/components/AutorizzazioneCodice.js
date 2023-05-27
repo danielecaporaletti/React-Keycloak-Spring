@@ -6,6 +6,7 @@ import Alert from 'react-bootstrap/Alert';
 import { Card } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { BASE_URL_KEYCLOAK, BASE_URL_FRONTEND } from '../../config'
 
 function AutorizzazioneCodice() {
     const [authorizationUrl, setAuthorizationUrl] = useState("");
@@ -15,11 +16,11 @@ function AutorizzazioneCodice() {
     const authorizationCode = useSelector(state => state.pkce.authorizationCode);
 
     const generaCodiceDiAutorizzazione = () => {
-      let authorizationUrl = "http://localhost:8080/realms/Reame1/protocol/openid-connect/auth" + "\n";
+      let authorizationUrl = `${BASE_URL_KEYCLOAK}/realms/Reame1/protocol/openid-connect/auth` + "\n";
       authorizationUrl += "?client_id=my-client" + "\n";
       authorizationUrl += "&response_type=code" + "\n";
       authorizationUrl += "&scope=openid email profile contacts address" + "\n";
-      authorizationUrl += "&redirect_uri=http://localhost:3000/login/callback" + "\n";
+      authorizationUrl += `&redirect_uri=${BASE_URL_FRONTEND}/login/callback` + "\n";
       authorizationUrl += "&state=" + pkceState + "\n";
       authorizationUrl += "&code_challenge=" + codeChallenge + "\n";
       authorizationUrl += "&code_challenge_method=S256" + "\n";

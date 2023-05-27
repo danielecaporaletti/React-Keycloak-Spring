@@ -7,6 +7,7 @@ import { Card } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAccessToken } from '../redux/pkceSlice';
+import { BASE_URL_KEYCLOAK, BASE_URL_FRONTEND } from '../../config';
 
 const TokenDiAccesso = () => {
     const dispatch = useDispatch();
@@ -17,13 +18,13 @@ const TokenDiAccesso = () => {
     const [tokenAccesso, setTokeAccesso] = useState("");
 
     const ottieniTokenDiAccesso = () => {
-      let accessTokenURL = "POST http://localhost:8080/realms/Reame1/protocol/openid-connect/token/" + "\n\n";
+      let accessTokenURL = `POST ${BASE_URL_KEYCLOAK}/realms/Reame1/protocol/openid-connect/token/` + "\n\n";
       accessTokenURL += "grant_type=authorization_code" + "\n";
       accessTokenURL += "&client_id=my-client" + "\n";
       accessTokenURL += "&client_idmy-client" + "\n";
       accessTokenURL += "&code=" + authorizationCode + "\n";
       accessTokenURL += "&code_verifier=" + codeVerifier + "\n";
-      accessTokenURL += "&redirect_uri=http://localhost:3000/login/callback" + "\n";
+      accessTokenURL += `&redirect_uri=${BASE_URL_FRONTEND}/login/callback` + "\n";
       setTokeAccesso(accessTokenURL);
     }
 
