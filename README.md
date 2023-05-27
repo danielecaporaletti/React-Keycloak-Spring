@@ -1,5 +1,7 @@
 **Note: This document is available in two languages, English and Italian.**
 
+**ENGLISH VERSION**
+
 # Local Installation
 
 The project uses Docker Compose to simplify the launching of the necessary services. You can start the entire stack with a single command from the project root:
@@ -48,7 +50,9 @@ For automatic authentication, I used the `keycloak-js` library for React and imp
 
 [Link to the documentation](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter)
 
+---
 
+**VERSIONE ITALIANA**
 
 # Installazione in locale
 
